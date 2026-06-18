@@ -109,31 +109,6 @@ nav a:hover{
     background:#333;
 }
 
-/* show */
-
-.dropdown-menu.show{
-    display:block;
-}
-
-/* isi */
-
-.dropdown-menu a{
-    display:block;
-    padding:14px;
-    text-decoration:none;
-    color:white;
-    font-size:14px;
-    border-bottom:1px solid #333;
-}
-
-/* hover */
-
-.dropdown-menu a:hover{
-    background:#333;
-}
-
-
-
 /* HERO */
 
 .hero{
@@ -275,19 +250,6 @@ nav a:hover{
     position:relative;
 }
 
-/* row poster */
-
-.movie-row{
-    display:flex;
-    gap:15px;
-    overflow-x:auto;
-    padding-bottom:5px;
-    scroll-behavior:smooth;
-}
-
-.movie-row::-webkit-scrollbar{
-    display:none;
-}
 
 /* tombol panah */
 
@@ -434,7 +396,8 @@ header{
 }
 
 .logo img{
-    width:75px;
+    width:100px;
+    height: auto;
 }
 
 nav{
@@ -621,7 +584,6 @@ footer{
 }
 
 
-
 </style>
 </head>
 
@@ -660,7 +622,7 @@ footer{
 
             <a href="#">Profil Saya</a>
             <a href="#">Ubah Premium</a>
-            <a href="login.html">Logout</a>
+            <a href="index.html">Logout</a>
 
         </div>
 
@@ -720,11 +682,11 @@ footer{
 
     <div class="movie-row">
 
-        <div class="card"><img src="assets/warkop.jpg"></div>
-        <div class="card"><img src="assets/Colony.jpg"></div>
-        <div class="card"><img src="assets/sekawanlimo.jpg"></div>
-        <div class="card"><img src="assets/harusnyahoror.jpg"></div>
-        <div class="card"><img src="assets/toystory.jpg"></div>
+        <div class="card"><img src="assets/warkop.jpg" alt="warkop">></div>
+        <div class="card"><img src="assets/Colony.jpg" alt="colony"></div>
+        <div class="card"><img src="assets/sekawanlimo.jpg" alt="sekawanlimo"></div>
+        <div class="card"><img src="assets/harusnyahoror.jpg" alt="harusnyahoror"></div>
+        <div class="card"><img src="assets/toystory.jpg" alt="toystory"></div>
         
 
     </div>
@@ -747,11 +709,11 @@ footer{
 
     <div class="movie-row">
 
-        <div class="card"><img src="assets/furiosjpg.jpg"></div>
-        <div class="card"><img src="assets/ipar.jpeg"></div>
-        <div class="card"><img src="assets/agaklaen.jpeg"></div>
-        <div class="card"><img src="assets/alas.jpg"></div>
-        <div class="card"><img src="assets/kairi.jpeg"></div>
+        <div class="card"><img src="assets/furiosjpg.jpg" alt="furiosjpg"></div>
+        <div class="card"><img src="assets/ipar.jpeg" alt="ipar"></div>
+        <div class="card"><img src="assets/agaklaen.jpeg" alt="agaklaen"></div>
+        <div class="card"><img src="assets/alas.jpg" alt="alas"></div>
+        <div class="card"><img src="assets/kairi.jpeg" alt="kairi"></div>
 
     </div>
 
@@ -773,11 +735,11 @@ footer{
 
     <div class="movie-row">
 
-        <div class="card"><img src="assets/cell.jpeg"></div>
-        <div class="card"><img src="assets/gjls.jpg"></div>
-        <div class="card"><img src="assets/irit.jpg"></div>
-        <div class="card"><img src="assets/jumbo.jpg"></div>
-        <div class="card"><img src="assets/sore.jpg"></div>
+        <div class="card"><img src="assets/cell.jpeg" alt="cell"></div>
+        <div class="card"><img src="assets/gjls.jpg" alt="gjls"></div>
+        <div class="card"><img src="assets/irit.jpg" alt="irit"></div>
+        <div class="card"><img src="assets/jumbo.jpg" alt="jumbo"></div>
+        <div class="card"><img src="assets/sore.jpg" alt="sore"></div>
 
     </div>
 
@@ -799,11 +761,11 @@ footer{
 
     <div class="movie-row">
 
-        <div class="card"><img src="assets/ibu.jpg"></div>
-        <div class="card"><img src="assets/garuda.jpg"></div>
-        <div class="card"><img src="assets/badut.jpg"></div>
-        <div class="card"><img src="assets/minion.jpg"></div>
-        <div class="card"><img src="assets/dukun.jpg"></div>
+        <div class="card"><img src="assets/ibu.jpg" alt="ibu"></div>
+        <div class="card"><img src="assets/garuda.jpg" alt="garuda"></div>
+        <div class="card"><img src="assets/badut.jpg" alt="badut"></div>
+        <div class="card"><img src="assets/minion.jpg" alt="minion"></div>
+        <div class="card"><img src="assets/dukun.jpg" alt="dukun"></div>
 
     </div>
 
@@ -960,7 +922,16 @@ document
 .classList.toggle("show");
 
 }
-
+/* carousel scroll */
+document.querySelectorAll(".carousel-wrapper").forEach(function(wrapper) {
+    const row = wrapper.querySelector(".movie-row");
+    wrapper.querySelector(".left-arrow").onclick = function() {
+        row.scrollLeft -= 300;
+    };
+    wrapper.querySelector(".right-arrow").onclick = function() {
+        row.scrollLeft += 300;
+    };
+});
 </script>
 </body>
 </html>
