@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHILL - Beranda</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#181818;
+    color:white;
+}
+
+/* HEADER */
+
+header{
+    background:#101010;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+}
+
+.left{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+nav{
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    color:#ccc;
+    text-decoration:none;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:white;
+}
+
+/* kanan */
+
+.right{
+    margin-left:auto;
+    position:relative;
+}
+
+/* avatar */
+
+.profile-box{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+}
+
+.avatar{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.arrow{
+    color:#aaa;
+    font-size:12px;
+}
+
+/* dropdown */
+
+.dropdown-menu{
+    position:absolute;
+    top:45px;
+    right:0;
+    width:180px;
+    background:#222;
+    border-radius:8px;
+    overflow:hidden;
+    display:none;
+    box-shadow:0 0 10px rgba(0,0,0,.4);
+    z-index:999;
+}
+
+.dropdown-menu.show{
+    display:block;
+}
+
+.dropdown-menu a{
+    display:block;
+    padding:14px;
+    text-decoration:none;
+    color:white;
+    border-bottom:1px solid #333;
+}
+
+.dropdown-menu a:hover{
+    background:#333;
+}
+
+/* show */
+
+.dropdown-menu.show{
+    display:block;
+}
+
+/* isi */
+
+.dropdown-menu a{
+    display:block;
+    padding:14px;
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+    border-bottom:1px solid #333;
+}
+
+/* hover */
+
+.dropdown-menu a:hover{
+    background:#333;
+}
+
+
+
+/* HERO */
+
+.hero{
+    height:430px;
+    margin:20px 40px;
+    border-radius:10px;
+    overflow:hidden;
+    background:
+    linear-gradient(to right, rgba(0,0,0,.75), rgba(0,0,0,.2)),
+    url("assets/images.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:flex-end;
+    padding:40px;
+}
+
+.hero-content{
+    width:100%;
+    max-width:100%;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#ddd;
+    line-height:1.5;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+}
+
+/* tombol kiri */
+
+.hero-left-buttons{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+/* sound kanan */
+
+.hero-sound{
+    margin-left:auto;
+}
+
+.play-btn{
+    background:#2d7ef7;
+    border:none;
+    padding:10px 22px;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.more-btn{
+    background:rgba(255,255,255,.15);
+    border:none;
+    padding:10px 20px;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.sound-btn{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.7);
+    color:white;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+}
+.age-btn{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.7);
+    color:white;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:13px;
+}
+
+/* SECTION */
+
+.section{
+    margin:30px 40px;
+}
+
+.section h2{
+    font-size:20px;
+    margin-bottom:18px;
+}
+
+.movie-row{
+    display:flex;
+    gap:15px;
+    overflow-x:auto;
+    padding-bottom:5px;
+}
+
+.movie-row::-webkit-scrollbar{
+    display:none;
+}
+
+.card{
+    min-width:170px;
+    height:240px;
+    border-radius:8px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.3s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+/* pembungkus carousel */
+
+.carousel-wrapper{
+    position:relative;
+}
+
+/* row poster */
+
+.movie-row{
+    display:flex;
+    gap:15px;
+    overflow-x:auto;
+    padding-bottom:5px;
+    scroll-behavior:smooth;
+}
+
+.movie-row::-webkit-scrollbar{
+    display:none;
+}
+
+/* tombol panah */
+
+.nav-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:rgba(50,50,50,.9);
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    z-index:10;
+    transition:0.3s;
+}
+
+/* kiri */
+
+.left-arrow{
+    left:-18px;
+}
+
+/* kanan */
+
+.right-arrow{
+    right:-18px;
+}
+
+/* hover */
+
+.nav-arrow:hover{
+    background:rgba(80,80,80,1);
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    padding:40px;
+    margin-top:50px;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:60px;
+}
+
+/* kiri */
+
+.footer-brand{
+    min-width:220px;
+}
+
+.footer-brand img{
+    width:110px;
+    margin-bottom:15px;
+}
+
+.footer-brand p{
+    color:#888;
+    font-size:13px;
+}
+
+/* tengah */
+
+.footer-genre{
+    flex:1;
+}
+
+.genre-title{
+    font-weight:bold;
+    margin-bottom:15px;
+    font-size:14px;
+}
+
+.genre-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:30px;
+}
+
+.genre-grid div{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+/* kanan */
+
+.footer-help{
+    min-width:160px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.help-title{
+    font-weight:bold;
+    margin-bottom:5px;
+    font-size:14px;
+}
+
+/* link */
+
+footer a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:13px;
+}
+
+footer a:hover{
+    color:white;
+}
+
+/* RESPONSIVE */
+
+/* ================= MOBILE ================= */
+
+.mobile-footer{
+    display:none;
+}
+
+@media(max-width:768px){
+
+/* HEADER */
+
+header{
+    padding:12px 15px;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.left{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:75px;
+}
+
+nav{
+    display:flex;
+    gap:10px;
+}
+
+nav a{
+    font-size:11px;
+}
+
+.avatar{
+    width:28px;
+    height:28px;
+}
+
+.arrow{
+    font-size:10px;
+}
+
+/* dropdown */
+
+.dropdown-menu{
+    width:150px;
+    right:0;
+}
+
+.dropdown-menu a{
+    font-size:12px;
+    padding:10px;
+}
+.mobile-dropdown{
+    display:none;
+    padding:10px 0 5px 10px;
+}
+
+.mobile-dropdown.show{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.mobile-dropdown a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:13px;
+}
+
+.mobile-dropdown a:hover{
+    color:white;
+}
+/* HERO */
+
+.hero{
+    margin:12px;
+    height:250px;
+    padding:15px;
+    border-radius:8px;
+}
+
+.hero h1{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.hero p{
+    font-size:10px;
+    margin-bottom:12px;
+    width:90%;
+}
+
+/* tombol hero */
+
+.hero-left-buttons{
+    gap:6px;
+}
+
+.play-btn,
+.more-btn{
+    padding:7px 12px;
+    font-size:10px;
+}
+
+.age-btn,
+.sound-btn{
+    width:32px;
+    height:32px;
+    font-size:10px;
+}
+
+/* SECTION */
+
+.section{
+    margin:18px 12px;
+}
+
+.section h2{
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.card{
+    min-width:110px;
+    height:150px;
+}
+
+.movie-row{
+    gap:8px;
+}
+
+/* panah slider */
+
+.nav-arrow{
+    width:32px;
+    height:32px;
+    font-size:14px;
+}
+
+.left-arrow{
+    left:-8px;
+}
+
+.right-arrow{
+    right:-8px;
+}
+
+/* FOOTER desktop disembunyikan */
+
+.footer-genre{
+    display:none;
+}
+
+.footer-help{
+    display:none;
+}
+
+.footer-container{
+    display:block;
+}
+
+/* footer */
+
+footer{
+    padding:20px 15px;
+}
+
+/* logo footer */
+
+.footer-brand img{
+    width:85px;
+}
+
+.footer-brand p{
+    font-size:11px;
+    margin-top:8px;
+    margin-bottom:25px;
+}
+
+/* mobile footer links */
+
+.mobile-footer{
+    display:block;
+}
+
+.mobile-links{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.mobile-item{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #333;
+    font-size:14px;
+    cursor:pointer;
+}
+
+.mobile-item span{
+    color:#888;
+}
+
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="left">
+
+        <div class="logo">
+            <img src="assets/logo.png" alt="Logo Chill">
+        </div>
+
+        <nav>
+            <a href="#">Series</a>
+            <a href="#">Film</a>
+            <a href="#">Daftar Saya</a>
+        </nav>
+
+    </div>
+
+
+    <div class="right">
+
+        <div class="profile-box" onclick="toggleDropdown()">
+
+            <img class="avatar"
+            src="assets/profil.jpg"
+            alt="profile">
+
+            <span class="arrow">▼</span>
+
+        </div>
+
+        <div id="dropdown-menu" class="dropdown-menu">
+
+            <a href="#">Profil Saya</a>
+            <a href="#">Ubah Premium</a>
+            <a href="login.html">Logout</a>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>365 DAYS</h1>
+
+<p>
+    Film 365 Days adalah drama romansa erotis yang menceritakan tentang Laura,
+    seorang wanita yang diculik oleh Don Massimo Torricelli,
+    seorang bos mafia Sisilia. 
+    Massimo menawan Laura dan memberinya batas waktu 365 hari untuk jatuh cinta padanya.
+</p>
+
+<div class="hero-buttons">
+
+    <div class="hero-left-buttons">
+
+        <button class="play-btn">Mulai</button>
+
+        <button class="more-btn">ⓘ Selengkapnya</button>
+
+        <button class="age-btn">18+</button>
+
+    </div>
+
+
+    <div class="hero-sound">
+
+        <button class="sound-btn">🔇</button>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SECTION 1 -->
+
+<section class="section">
+
+<h2>Melanjutkan Tonton Film</h2>
+
+<div class="carousel-wrapper">
+
+    <button class="nav-arrow left-arrow">❮</button>
+
+    <div class="movie-row">
+
+        <div class="card"><img src="assets/warkop.jpg"></div>
+        <div class="card"><img src="assets/Colony.jpg"></div>
+        <div class="card"><img src="assets/sekawanlimo.jpg"></div>
+        <div class="card"><img src="assets/harusnyahoror.jpg"></div>
+        <div class="card"><img src="assets/toystory.jpg"></div>
+        
+
+    </div>
+
+    <button class="nav-arrow right-arrow">❯</button>
+
+</div>
+
+</section>
+
+<!-- SECTION 2 -->
+
+<section class="section">
+
+<h2>Top Rating Film dan Series Hari Ini</h2>
+
+<div class="carousel-wrapper">
+
+    <button class="nav-arrow left-arrow">❮</button>
+
+    <div class="movie-row">
+
+        <div class="card"><img src="assets/furiosjpg.jpg"></div>
+        <div class="card"><img src="assets/ipar.jpeg"></div>
+        <div class="card"><img src="assets/agaklaen.jpeg"></div>
+        <div class="card"><img src="assets/alas.jpg"></div>
+        <div class="card"><img src="assets/kairi.jpeg"></div>
+
+    </div>
+
+    <button class="nav-arrow right-arrow">❯</button>
+
+</div>
+
+</section>
+
+<!-- SECTION 3 -->
+
+<section class="section">
+
+<h2>Film Trending</h2>
+
+<div class="carousel-wrapper">
+
+    <button class="nav-arrow left-arrow">❮</button>
+
+    <div class="movie-row">
+
+        <div class="card"><img src="assets/cell.jpeg"></div>
+        <div class="card"><img src="assets/gjls.jpg"></div>
+        <div class="card"><img src="assets/irit.jpg"></div>
+        <div class="card"><img src="assets/jumbo.jpg"></div>
+        <div class="card"><img src="assets/sore.jpg"></div>
+
+    </div>
+
+    <button class="nav-arrow right-arrow">❯</button>
+
+</div>
+
+</section>
+
+<!-- SECTION 4 -->
+
+<section class="section">
+
+<h2>Rilis Baru</h2>
+
+<div class="carousel-wrapper">
+
+    <button class="nav-arrow left-arrow">❮</button>
+
+    <div class="movie-row">
+
+        <div class="card"><img src="assets/ibu.jpg"></div>
+        <div class="card"><img src="assets/garuda.jpg"></div>
+        <div class="card"><img src="assets/badut.jpg"></div>
+        <div class="card"><img src="assets/minion.jpg"></div>
+        <div class="card"><img src="assets/dukun.jpg"></div>
+
+    </div>
+
+    <button class="nav-arrow right-arrow">❯</button>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-container">
+
+    <!-- kiri -->
+    <div class="footer-brand">
+
+        <img src="assets/logo.png" alt="Logo Chill">
+
+        <p>©2026 Chill All Rights Reserved.</p>
+
+    </div>
+
+
+    <!-- tengah -->
+    <div class="footer-genre">
+
+        <div class="genre-title">Genre</div>
+
+        <div class="genre-grid">
+
+            <div>
+                <a href="#">Aksi</a>
+                <a href="#">Anak-anak</a>
+                <a href="#">Anime</a>
+                <a href="#">Britania</a>
+            </div>
+
+            <div>
+                <a href="#">Drama</a>
+                <a href="#">Fantasi Ilmiah & Fantasi</a>
+                <a href="#">Kejahatan</a>
+                <a href="#">KDrama</a>
+            </div>
+
+            <div>
+                <a href="#">Komedi</a>
+                <a href="#">Petualangan</a>
+                <a href="#">Perang</a>
+                <a href="#">Romantis</a>
+            </div>
+
+            <div>
+                <a href="#">Sains & Alam</a>
+                <a href="#">Thriller</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- kanan -->
+    <div class="footer-help">
+
+        <div class="help-title">Bantuan</div>
+
+        <a href="#">FAQ</a>
+        <a href="#">Kontak Kami</a>
+        <a href="#">Privasi</a>
+        <a href="#">Syarat & Ketentuan</a>
+
+    </div>
+
+</div>
+
+<div class="mobile-footer">
+
+    <div class="mobile-links">
+
+        <!-- Genre -->
+        <div class="mobile-menu">
+
+            <div class="mobile-item" onclick="toggleMenu('genre-menu')">
+                Genre <span>▼</span>
+            </div>
+
+            <div id="genre-menu" class="mobile-dropdown">
+
+                <a href="#">Aksi</a>
+                <a href="#">Anime</a>
+                <a href="#">Drama</a>
+                <a href="#">Komedi</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Bantuan -->
+        <div class="mobile-menu">
+
+            <div class="mobile-item" onclick="toggleMenu('help-menu')">
+                Bantuan <span>▼</span>
+            </div>
+
+            <div id="help-menu" class="mobile-dropdown">
+
+                <a href="#">FAQ</a>
+                <a href="#">Kontak Kami</a>
+                <a href="#">Privasi</a>
+                <a href="#">Syarat & Ketentuan</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</footer>
+<script>
+
+function toggleDropdown(){
+
+document
+.getElementById("dropdown-menu")
+.classList.toggle("show");
+
+}
+
+/* klik luar → tutup */
+
+window.onclick = function(event){
+
+if(!event.target.closest(".profile-box")){
+
+document
+.getElementById("dropdown-menu")
+.classList.remove("show");
+
+}
+
+}
+/* footer mobile */
+
+function toggleMenu(id){
+
+document
+.getElementById(id)
+.classList.toggle("show");
+
+}
+
+</script>
+</body>
+</html>

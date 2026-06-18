@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHILL - Login</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    linear-gradient(rgba(0,0,0,.80), rgba(0,0,0,.80)),
+    url("assets/bg-login.jpg");
+    background-size:cover;
+    background-position:center;
+    padding:20px;
+}
+
+.container{
+    width:420px;
+    background:rgba(20,20,20,.95);
+    padding:40px;
+    border-radius:12px;
+}
+
+.logo{
+    text-align:center;
+    color:#E50914;
+    font-size:38px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+h2{
+    color:white;
+    margin-bottom:20px;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    background:#333;
+    border:none;
+    border-radius:6px;
+    color:white;
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border:1px solid #E50914;
+}
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+    font-size:14px;
+}
+
+.options a{
+    color:#aaa;
+    text-decoration:none;
+}
+
+.options a:hover{
+    color:#E50914;
+}
+
+.login-btn{
+    display:block;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:6px;
+    background:#E50914;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    text-align:center;
+    text-decoration:none;
+}
+
+.login-btn:hover{
+    background:#c40712;
+}
+
+.divider{
+    text-align:center;
+    margin:20px 0;
+    color:#888;
+    position:relative;
+}
+
+.divider::before{
+    content:"";
+    position:absolute;
+    width:40%;
+    height:1px;
+    background:#555;
+    left:0;
+    top:50%;
+}
+
+.divider::after{
+    content:"";
+    position:absolute;
+    width:40%;
+    height:1px;
+    background:#555;
+    right:0;
+    top:50%;
+}
+
+.google-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    background:white;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+    font-weight:bold;
+    text-decoration:none;
+    color:black;
+}
+
+.google-btn img{
+    width:20px;
+}
+
+.google-btn:hover{
+    background:#ececec;
+}
+
+.extra{
+    margin-top:20px;
+    text-align:center;
+    color:#aaa;
+}
+
+.extra a{
+    color:white;
+    text-decoration:none;
+}
+
+.extra a:hover{
+    color:#E50914;
+}
+
+@media(max-width:480px){
+
+.container{
+    width:100%;
+    padding:25px;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo img{
+    width:80px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+    <img src="assets/logo.png" alt="Logo Chill">
+</div>
+
+<h2>Login</h2>
+
+<form>
+
+<div class="input-group">
+<input type="text" placeholder="Username" required>
+</div>
+
+<div class="input-group">
+<input type="password" placeholder="Password" required>
+</div>
+
+<div class="options">
+<a href="#">Forgot Password?</a>
+</div>
+
+<a href="home.html" class="login-btn">Login</a>
+
+<div class="divider">OR</div>
+
+
+<a href="home.html" class="google-btn">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg">
+
+Continue with Google
+
+</a>
+
+<div class="extra">
+
+Don't have an account?
+
+<a href="register.html">Register</a>
+
+</div>
+
+</form>
+
+</div>
+
+</body>
+</html>
